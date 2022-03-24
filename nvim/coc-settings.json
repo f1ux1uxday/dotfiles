@@ -1,0 +1,34 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "wxss.validate": false,
+  "eslint.alwaysShowStatus": true,
+  "html.enable": true,
+  "html.filetypes": [
+      "html"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": [""],
+  "Lua.diagnostics.globals": ["vim"],
+  "languageserver": {
+    "liquid": {
+      "command": "theme-check-language-server",
+      "filetypes": [
+        "liquid"
+      ],
+      "settings": {
+        "themeCheck": {
+          "checkOnOpen": true,
+          "checkOnChange": true,
+          "checkOnSave": true
+        }
+      },
+      "rootPatterns": [
+        ".theme-check.yml"
+      ]
+    }
+  }
+}
+
+
+
