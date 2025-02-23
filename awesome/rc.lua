@@ -86,21 +86,17 @@ do
 end
 
 -- This is used later as the default terminal and editor to run.
-terminal = "st"
--- editor = os.getenv("EDITOR") or os.getenv("VISUAL") or "vi"
+terminal = "ghostty"
 editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 menubar.utils.terminal = terminal
-theme.icon_theme = "Mondrian"
+theme.icon_theme = "dracula-icons-main"
 
 networks = {'wlp3s0'}
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
@@ -109,18 +105,9 @@ awful.layout.layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    -- awful.layout.suit.floating,
-    -- awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
+    awful.layout.suit.floating,
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.max,
-    -- awful.layout.suit.max.fullscreen,
-    -- awful.layout.suit.magnifier,
-    -- awful.layout.suit.corner.nw,
-    -- awful.layout.suit.corner.ne,
-    -- awful.layout.suit.corner.sw,
-    -- awful.layout.suit.corner.se,
 }
 -- }}}
 
@@ -148,16 +135,44 @@ local function lookup_icon(icon, size)
 end
 
 mysystemmenu = {
-   { "Lock Screen",     "light-locker-command --lock",  lookup_icon("system-lock-screen", 16) },
-   { "Logout",           function() awesome.quit() end, lookup_icon("system-log-out", 16)     },
-   { "Reboot System",   "systemctl reboot",             lookup_icon("system-restart", 16)       },
-   { "Shutdown System", "systemctl poweroff",           lookup_icon("system-shutdown", 16)    }
+  {
+    "Lock Screen",
+    "light-locker-command --lock",
+    lookup_icon("system-lock-screen", 16)
+  },
+  {
+    "Logout",
+    function() awesome.quit() end,
+    lookup_icon("system-log-out", 16)
+  },
+  {
+    "Reboot System",
+    "systemctl reboot",
+    lookup_icon("system-restart", 16)
+  },
+  {
+    "Shutdown System",
+    "systemctl poweroff",
+    lookup_icon("system-shutdown", 16)
+  }
 }
 
 myawesomemenu = {
-   { "Restart Awesome", awesome.restart, lookup_icon("view-refresh", 16) },
-   { "Edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "rc.lua", lookup_icon("package_settings", 16) },
-   { "manual", terminal .. " -e man awesome", lookup_icon("help-browser", 16) }
+  {
+    "Restart Awesome",
+    awesome.restart,
+    lookup_icon("view-refresh", 16)
+  },
+  {
+    "Edit config",
+    editor_cmd .. " " .. awful.util.getdir("config") .. "rc.lua", 
+    lookup_icon("package_settings", 16)
+  },
+  {
+    "manual",
+    terminal .. " -e man awesome",
+    lookup_icon("help-browser", 16)
+  }
 }
 
 mymainmenu = freedesktop.menu.build({
@@ -168,7 +183,13 @@ mymainmenu = freedesktop.menu.build({
         { "System",   mysystemmenu,           lookup_icon("preferences-system", 16) },
         { "Terminal", menubar.utils.terminal, lookup_icon("utilities-terminal", 16) }
     },
-    skip_items = { "settings", "Settings", "Panel", "Jupyter Qt console", "atop", "Terminal", "Git Gui", "git-gui" }
+    skip_items = {
+      "settings",
+      "Settings/",
+      "Terminal",
+      "GitGui",
+      "git-gui",
+    }
 })
 
 mylauncher = awful.widget.launcher({ image = beautiful.opensuse_icon,
@@ -178,33 +199,18 @@ mylauncher = awful.widget.launcher({ image = beautiful.opensuse_icon,
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
--- mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- We need spacer and separator between the widgets
 spacer = wibox.widget.textbox()
 separator = wibox.widget.textbox()
 spacer:set_text(" ")
-separator:set_text("|")
+separator:set_markup('<span color="'.. beautiful.widget_separator .. '" >|</span>')
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
--- calendar2.addCalendarToWidget(mytextclock, "<span color='green'>%s</span>")
 
 mycpuwidget = wibox.widget.textbox()
 vicious.register(mycpuwidget, vicious.widgets.cpu, "$1%")
-
---[[ mybattery = wibox.widget.textbox()
-vicious.register(mybattery, function(format, warg)
-    local args = vicious.widgets.bat(format, warg)
-    if args[2] < 50 then
-        args['{color}'] = 'red'
-    else
-        args['{color}'] = 'green'
-    end
-    return args
-end, '<span foreground="${color}">bat: $2% $3h</span>', 10, 'BAT0') ]]
 
 -- Network widget
 function print_net(name, down, up)
@@ -228,26 +234,9 @@ vicious.register(netwidget, vicious.widgets.net,
 
 -- Volume widget
 volwidget = wibox.widget.textbox()
-volbar = wibox.widget.progressbar({
-  forced_height = 100,
-  forced_width  = 20,
-  border_width = 1,
-  border_color = "#fac901",
-  background_color = "#000000",
-  color = "#ffffff",
-  layout = wibox.container.rotate
-})
--- volwidget = widget({ type = "textbox" })
--- Progressbar properties
--- volbar:set_vertical(true):set_ticks(true)
--- volbar:set_height(16):set_width(8):set_ticks_size(2)
--- volbar:set_background_color(beautiful.fg_off_widget)
--- volbar:set_gradient_colors({ beautiful.fg_widget,
-   -- beautiful.fg_center_widget, beautiful.fg_end_widget
--- }) -- Enable caching
 vicious.cache(vicious.widgets.volume)
+
 -- Register widgets
-vicious.register(volbar, vicious.widgets.volume, "$1", 2, "Master")
 vicious.register(volwidget, vicious.widgets.volume, " $1", 2, "Master")
 
 -- Weather widget
@@ -347,7 +336,8 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -385,16 +375,16 @@ awful.screen.connect_for_each_screen(function(s)
             -- wibox.widget.systray(),
             netwidget, spacer, separator,
             volwidget, spacer, separator,
-            mytextclock, separator, spacer,
+            mytextclock, spacer,
 
             -- kbdcfg.widget,
             -- spacer,
             -- separator,
             -- spacer,
 
-            mycpuwidget, spacer, separator, spacer,
+            -- mycpuwidget, spacer, separator, spacer,
 
-            myweatherwidget, spacer,
+            -- myweatherwidget, spacer,
             s.mylayoutbox,
         },
     }
@@ -498,7 +488,7 @@ globalkeys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey }, "r",
       function()
-        awful.util.spawn("dmenu_run -i -nb '#000' -nf '#dd0100' -sb '#225095' -sf '#fac901'")
+        awful.util.spawn("dmenu_run -i -nb '#282A36' -nf '#F1FA8C' -sb '#FF79C6' -sf '#44475A'")
       end,
       {description = "show the menubar", group = "launcher"}),
 
@@ -571,7 +561,7 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey }, "d",
       function()
-        awful.util.spawn("transmission-gtk")
+        awful.util.spawn("env GTK_THEME=Dracula-pink-accent-slim transmission-gtk")
       end,
       {description = "transmission", group = "launcher"}
     ),
@@ -818,6 +808,12 @@ client.connect_signal("manage", function (c)
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
     end
+
+    if not c.fullscreen then
+      c.shape = function(cr,w,h)
+          gears.shape.rounded_rect(cr, w, h, 8)
+      end
+    end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -872,6 +868,8 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- local rounded_rect = require("gears").shape.rounded_rect
 -- }}}
 
 -- Run garbage collector regularly to prevent memory leaks

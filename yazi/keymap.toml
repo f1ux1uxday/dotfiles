@@ -1,0 +1,8 @@
+[manager]
+append_keymap = [
+  # commands
+	{ on = ["<C-o>"], run = "shell 'ristretto $0'", desc = "Just for test!" },
+  # go
+	{ on = [ "g", "m" ],       run = "cd ~/Storage/movieLibrary", desc = "Go to the movieLibrary directory" },
+	{ on = [ "g", "n" ],       run = "cd ~/Storage/vault/flux/Pictures/newFolder", desc = "Go to the newFolder directory" },
+]

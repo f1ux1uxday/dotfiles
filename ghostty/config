@@ -1,0 +1,12 @@
+window-decoration = false
+window-theme = ghostty
+window-padding-color = extend
+
+theme = Dracula
+background="#282A36"
+background-opacity=0.6
+font-family = FantasqueSansM Nerd Font
+font-size = 12
+freetype-load-flags = true
+
+cursor-style = block

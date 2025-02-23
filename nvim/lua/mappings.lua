@@ -23,7 +23,7 @@ map('n', '<space>t', ':FloatermNew<CR>', {noremap = false})
 map('n', '<space>tt', ':FloatermToggle<CR>', {noremap = false})
 
 -- FM
-map('n', '<leader>r', ':Ranger <cr>', {noremap = false})
+map('n', '<leader>y', ':Yazi <cr>', {noremap = false})
 
 -- FZF
 map('n', '<space>fzf', ':FZF<CR>', {noremap = false})

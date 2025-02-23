@@ -1,0 +1,155 @@
+* {
+    /* Dracula theme colour palette */
+    drac-bgd: rgba(40, 42, 54, 0.5);
+    drac-cur: #44475a;
+    drac-fgd: #f8f8f2;
+    drac-cmt: #6272a4;
+    drac-cya: #8be9fd;
+    drac-grn: #50fa7b;
+    drac-ora: #ffb86c;
+    drac-pnk: #ff79c6;
+    drac-pur: #bd93f9;
+    drac-red: #ff5555;
+    drac-yel: #f1fa8c;
+
+    font: "FantasqueSansM Nerd Font 10";
+
+    foreground: @drac-fgd;
+    background-color: @drac-bgd;
+    active-background: @drac-pnk;
+    urgent-background: @drac-red;
+    urgent-foreground: @drac-bgd;
+    
+    selected-background: @active-background;
+    selected-foreground: @drac-cya;
+    selected-urgent-background: @urgent-background;
+    selected-active-background: @active-background;
+    separatorcolor: @active-background;
+    bordercolor: rgba(189, 147, 249, 0.8);
+}
+
+#window {
+    background-color: @background-color;
+    border:           2;
+    border-radius:    4;
+    border-color:     @bordercolor;
+    padding:          15;
+}
+#mainbox {
+    border:  0;
+    padding: 0;
+    border-radius: 2px;
+    background-color: transparent;
+}
+#message {
+    border:       2px;
+    border-color: @separatorcolor;
+    padding:      1px ;
+}
+#textbox {
+    margin: 8px 0;
+    text-color: @foreground;
+    background-color: transparent;
+}
+
+#listview {
+    fixed-height: 0;
+    border:       0px;
+    border-radius: 2px;
+    border-color: @bordercolor;
+    background-color: transparent;
+    spacing:      6px ;
+    scrollbar:    false;
+    padding:      16px 0px 0px ;
+}
+#element {
+    background-color: transparent;
+    border-radius: 3px;
+    border: 2px;
+    padding: 6px;
+}
+#element.normal.normal {
+    border: 2px;
+    border-color: @background-color;
+    text-color:       @foreground;
+}
+#element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+#element.normal.active {
+    text-color:       @background-color;
+}
+#element.selected.normal {
+    border: 2px;
+    border-color: @selected-background;
+    text-color:       @selected-foreground;
+}
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @foreground;
+}
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @background-color;
+}
+#element.alternate.normal {
+    border: 2px;
+    border-color: @background-color;
+    text-color:       @foreground;
+}
+#element.alternate.urgent {
+    text-color:       @foreground;
+}
+#element.alternate.active {
+    text-color:       @foreground;
+}
+#scrollbar {
+    width:        2px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+}
+#sidebar {
+    border:       2px dash 0px 0px ;
+    border-color: @separatorcolor;
+}
+#button.selected {
+    background-color: @selected-background;
+    text-color:       @foreground;
+}
+#inputbar {
+    spacing:    0;
+    text-color: @foreground;
+    background-color: transparent;
+    padding:    1px ;
+}
+#case-indicator {
+    spacing:    0;
+    text-color: @foreground;
+    background-color: transparent;
+}
+#entry {
+    spacing:    0;
+    text-color: @drac-ora;
+    background-color: transparent;
+}
+#prompt {
+    spacing:    0;
+    text-color: @drac-yel;
+    background-color: transparent;
+}
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ">";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @drac-grn;
+    background-color: transparent;
+}
+element-text, element-icon {
+    background-color: inherit;
+    text-color: inherit;
+}

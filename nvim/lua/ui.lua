@@ -1,39 +1,31 @@
 -- Colorscheme
--- require('colorbuddy').colorscheme('onebuddy')
--- vim.cmd 'colorscheme onebuddy'
--- vim.g.colors_name = 'PaperColorSlim'
--- vim.g.aquarium_style = 'light'
--- vim.g.aqua_transparency = true
--- vim.opt.background = 'light'
--- vim.g.everforest_transparent_background = true
 vim.opt.termguicolors = true
 
-require("github-theme").setup({
-  theme_style = "light",
-  function_style = "italic",
-  sidebars = {"qf", "vista_kind", "terminal", "packer"},
-
-  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  colors = {hint = "yellow", error = "#ff0000"},
-
-  -- Overwrite the highlight groups
-  overrides = function(c)
-    return {
-      htmlTag = {fg = c.red, bg = "#282c34", sp = c.hint, style = "underline"},
-      DiagnosticHint = {link = "LspDiagnosticsDefaultHint"},
-      -- this will remove the highlight groups
-      TSField = {},
-    }
-  end
+require('dracula').setup({
+  transparent_bg = true,
+  overrides = {
+    TelescopeNormal = { bg = 'none' },
+    TelescopeBorder = { fg = '#BD93F9' },
+    TelescopeSelection = { bg = '#FF79C6', fg = '#3E4452' },
+    LineNr = { fg = '#7282B4' },
+    Comment = { fg = '#7282B4' }
+  },
 })
 
+vim.cmd[[colorscheme dracula]]
+
 -- Lualine
+local custom_theme = require'lualine.themes.dracula-nvim'
+custom_theme.insert.c.bg = 'none'
+custom_theme.normal.c.bg = 'none'
+custom_theme.replace.c.bg = 'none'
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'github',
-    component_separators = { left = '|', right = '|'},
-    section_separators = { left = '', right = ''},
+    theme = custom_theme,
+    section_separators = { left = '', right = ''},
+    component_separators = { left = '', right = ''},
     disabled_filetypes = {},
     always_divide_middle = true,
   },
@@ -64,29 +56,88 @@ require('lualine').setup {
   extensions = {}
 }
 
--- Tabline
-require'tabline'.setup {
-  enable = true,
-  options = {
-    component_separators = {'|', '|'},
-    section_separators = {'', ''},
-    max_bufferline_percent = 66,
-    show_tabs_always = false,
-    show_devicons = true,
-    show_bufnr = false,
-    show_filename_only = true,
-    modified_icon = "+ ",
-    modified_italic = false
-  }
+-- Incline
+local devicons = require 'nvim-web-devicons'
+local incline_color_active = '#FF79C6'
+local incline_color_inactive = '#BD93F9'
+
+require('incline').setup {
+  window = {
+    padding = 0,
+    margin = { horizontal = 0 },
+    zindex = 1
+  },
+  highlight = {
+    groups = {
+      InclineNormal = {
+        default = true,
+        group = "LineNr"
+      },
+      InclineNormalNC = {
+        default = true,
+        group = "LineNr"
+      }
+    }
+  },
+
+  render = function(props)
+    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+    if filename == '' then
+      filename = '[No Name]'
+    end
+    local ft_icon = devicons.get_icon_color(filename)
+    local modified = vim.bo[props.buf].modified
+    local content = function(color)
+      return {
+        { filename, gui = modified and 'bold,italic' or 'bold' },
+        ft_icon and { ' ', ft_icon, ' ', guifg = color } or '',
+        guifg = color
+      }
+    end
+
+    if props.focused then
+      return content(incline_color_active)
+    end
+
+    return content(incline_color_inactive)
+  end,
 }
 
 -- Transparent
 require("transparent").setup({
- enable = true,
- extra_groups = {
+  groups = {
+    'Normal',
+    'NormalNC',
+    'Comment',
+    'Constant',
+    'Special',
+    'Identifier',
+    'Statement',
+    'PreProc',
+    'Type',
+    'Underlined',
+    'Todo',
+    'String',
+    'Function',
+    'Conditional',
+    'Repeat',
+    'Operator',
+    'Structure',
+    'LineNr',
+    'NonText',
+    'SignColumn',
+    'CursorLine',
+    'CursorLineNr',
+    'StatusLine',
+    'StatusLineNC',
+    'EndOfBuffer',
+  },
+  extra_groups = {
+    "Pmenu",
     "Border",
     "Floaterm",
-    "FloatermBorder"
- },
- exclude = {}
+    "FloatermBorder",
+    "NormalFloat"
+  },
+  exclude = {}
 })

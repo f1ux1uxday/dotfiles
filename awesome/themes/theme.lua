@@ -1,26 +1,58 @@
 ------------------------------------------------------------
 -- openSUSE awesome theme based on awesome default theme --
 ------------------------------------------------------------
+palette = {
+   bg = "#282A36",
+   fg = "#F8F8F2",
+   selection = "#44475A",
+   comment = "#6272A4",
+   red = "#FF5555",
+   orange = "#FFB86C",
+   yellow = "#F1FA8C",
+   green = "#50fa7b",
+   purple = "#BD93F9",
+   cyan = "#8BE9FD",
+   pink = "#FF79C6",
+   bright_red = "#FF6E6E",
+   bright_green = "#69FF94",
+   bright_yellow = "#FFFFA5",
+   bright_blue = "#D6ACFF",
+   bright_magenta = "#FF92DF",
+   bright_cyan = "#A4FFFF",
+   bright_white = "#FFFFFF",
+   menu = "#21222C",
+   visual = "#3E4452",
+   gutter_fg = "#4B5263",
+   nontext = "#3B4048",
+   white = "#ABB2BF",
+   black = "#191A21",
+}
 
 theme = {}
 
-theme.font          = "Public Sans SemiBold 9"
+theme.font          = "FantasqueSansM Nerd Font Bold 9"
 
-theme.bg_normal     = "#000000"
-theme.bg_focus      = "#225095"
-theme.bg_urgent     = "#dd0100"
-theme.bg_minimize   = "#fac901"
+theme.bg_normal     = palette.bg
+theme.bg_focus      = palette.bg
+theme.bg_urgent     = palette.bg
+theme.bg_minimize   = palette.bg
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#fac901"
-theme.fg_focus      = "#fac901"
-theme.fg_urgent     = "#fac901"
-theme.fg_minimize   = "#225095"
+theme.fg_normal     = palette.green
+theme.fg_focus      = palette.pink
+theme.fg_urgent     = palette.red
+theme.fg_minimize   = palette.purple
 
-theme.border_width  = 4
-theme.border_normal = "#000000"
-theme.border_focus  = "#dd0100"
-theme.border_marked = "#91231c"
+theme.border_width  = 2
+theme.border_normal = palette.purple
+theme.border_focus  = palette.pink
+theme.border_marked = palette.red
+
+theme.taglist_bg_focus = palette.pink
+theme.taglist_fg_focus = palette.bg
+theme.taglist_bg_occupied = palette.bg
+theme.taglist_fg_occupied = palette.purple
+theme.taglist_fg_empty = palette.yellow
 
 -- There are other variable sets
 -- overriding the default one when
@@ -35,17 +67,22 @@ theme.border_marked = "#91231c"
 theme.master_width_factor = 0.62
 theme.useless_gap = 3
 
-theme.fg_netdn_widget  = "#225095"
-theme.fg_netup_widget  = "#dd0100"
+theme.widget_separator  = palette.gutter_fg
+
+theme.fg_netdn_widget  = palette.cyan
+theme.fg_netup_widget  = palette.orange
 
 -- Display the taglist squares
-theme.taglist_squares_sel   = "/usr/share/awesome/themes/openSUSE/taglist/squarefw.png"
-theme.taglist_squares_unsel = "/usr/share/awesome/themes/openSUSE/taglist/squarew.png"
+-- theme.taglist_squares_sel   = "/usr/share/awesome/themes/openSUSE/taglist/squarefw.png"
+-- theme.taglist_squares_sel   = "~/.icons/dracula-icons-main/16/actions/draw-triangle4.svg"
+-- theme.taglist_squares_unsel = "/usr/share/awesome/themes/openSUSE/taglist/squarew.png"
+-- theme.taglist_squares_unsel   = "~/.icons/dracula-icons-main/16/actions/draw-triangle3.svg"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = "/usr/share/awesome/themes/openSUSE/submenu.png"
+-- theme.menu_submenu_icon = "/usr/share/awesome/themes/openSUSE/submenu.png"
+theme.menu_submenu_icon = "~/.local/share/icons/dracula-icons-main/16/actions/draw-arrow-forward.svg"
 theme.menu_height = 15
 theme.menu_width  = 200
 
@@ -78,8 +115,7 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/ope
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/openSUSE/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/openSUSE/titlebar/maximized_focus_active.png"
 
--- theme.wallpaper = "/usr/share/wallpapers/openSUSEdefault/contents/images/1920x1080.jpg"
-theme.wallpaper = "~/Pictures/piet-mondrian-wallpaper.jpg"
+theme.wallpaper = "~/Pictures/opensuse.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "/usr/share/awesome/themes/openSUSE/layouts/fairhw.png"
@@ -96,7 +132,8 @@ theme.layout_spiral  = "/usr/share/awesome/themes/openSUSE/layouts/spiralw.png"
 theme.layout_dwindle = "/usr/share/awesome/themes/openSUSE/layouts/dwindlew.png"
 
 theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
-theme.opensuse_icon = "~/.local/share/icons/Mondrian/places/48/desktop.svg"
+-- theme.opensuse_icon = "~/.icons/OieOxy tchalla/scalable/apps/cinnamon-preferences-color.svg"
+theme.opensuse_icon = "/home/flux/.icons/Dracula/Places/16/user-home.svg"
 
 -- Define the icon theme for application icons. If not set then the icons 
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.

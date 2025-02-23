@@ -1,0 +1,9 @@
+configuration {
+  show-icons:      false;
+  display-drun:    "run: ";
+  disable-history: false;
+  modes: [window,drun,run,ssh,filebrowser];
+}
+
+@theme "dracula"
+

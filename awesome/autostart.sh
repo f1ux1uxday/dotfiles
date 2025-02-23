@@ -7,5 +7,5 @@ function run {
   fi
 }
 
-run picom -b
+# run picom -b --vsync
 run bluetoothctl power on

@@ -1,0 +1,119 @@
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "FantasqueSansM Nerd Font", "FontAwesome 6 Free";
+    font-size:     12px;
+    font-weight:   bold;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
+}
+
+window#waybar {
+    color: rgba(248, 248, 242, 0.8);
+    background-color: rgba(40, 42, 54, 0.4); /* bg */
+    font-weight: 500;
+    /* border-bottom: 2px solid rgba(53, 185, 171, 0.4); */
+}
+
+window#waybar.solo {
+    color: rgba(248, 248, 242, 0.8); /* fg */
+}
+
+#workspaces {
+    margin: 0 5px;
+}
+
+#custom-scratchpad {
+    margin: 0px	5px;
+    padding: 0px 5px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: rgba(189, 147, 249, 1); /* purple */
+}
+
+#workspaces button:hover {
+    background-color: transparent;
+}
+
+#workspaces button.focused {
+    color: rgba(255, 121, 198, 1); /* pink */
+}
+
+#workspaces button.visible {
+    color: rgba(139, 233, 253, 1); /* cyan */
+}
+
+#workspaces button.urgent {
+    color: rgba(255, 121, 198, 1); /* pink */
+}
+
+#workspaces button.active {
+    color: rgba(255, 121, 198, 1); /* pink */
+}
+
+#mode, 
+#cpu, 
+#memory, 
+#network, 
+#bluetooth,
+#pulseaudio, 
+#idle_inhibitor, 
+#temperature,
+#custom-layout,
+#custom-notification,
+#custom-zypper,
+#clock {
+    padding: 0px 8px;
+    /* background-color: rgba(40, 42, 54, 1); */
+}
+
+#custom-zypper,
+#network,
+#bluetooth {
+    border-bottom: 2px solid rgba(189, 147, 249, 0.8); /* purple */
+    color: rgba(189, 147, 249, 0.8); /* purple */
+}
+
+#bluetooth.disabled {
+    color: rgba(128, 128, 128, 1);
+}
+
+#bluetooth.off {
+    color: rgba(128, 128, 128, 1);
+}
+
+#bluetooth.connected {
+    color: rgba(115, 186, 37, 1);
+}
+
+#cpu, 
+#memory {
+    border-bottom: 2px solid rgba(139, 233, 253, 0.8); /* cyan */
+    color: rgba(139, 233, 253, 0.8); /* cyan */
+} 
+
+#temperature {
+    border-bottom: 2px solid rgba(255, 184, 108, 0.8); /* orange */
+    color: rgba(255, 184, 108, 0.8); /* orange */
+}
+
+#pulseaudio {
+    padding-right: 16px;
+    border-bottom: 2px solid rgba(255, 121, 198, 0.8); /* pink */
+    color: rgba(255, 121, 198, 0.8); /* pink */
+}
+
+#clock {
+    padding: 0px 8px;
+    border-bottom: 2px solid rgba(241, 250, 140, 0.8); /* yellow */
+    color: rgba(241, 250, 140, 0.8); /* yellow */
+}
+
+#custom-notification {
+    padding-right: 4px;
+    border-bottom: 2px solid rgba(255, 110, 110, 0.8); /* red */
+    color: rgba(255, 110, 110, 0.8); /* red */
+}
