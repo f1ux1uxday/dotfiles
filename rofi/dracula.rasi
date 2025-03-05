@@ -2,7 +2,7 @@
     /* Dracula theme colour palette */
     drac-bgd: rgba(40, 42, 54, 0.5);
     drac-cur: #44475a;
-    drac-fgd: #f8f8f2;
+    drac-fgd: rgba(248, 248, 242, 0.66);
     drac-cmt: #6272a4;
     drac-cya: #8be9fd;
     drac-grn: #50fa7b;
@@ -64,13 +64,13 @@
 }
 #element {
     background-color: transparent;
-    border-radius: 3px;
+    border-radius: 12px;
     border: 2px;
-    padding: 6px;
+    padding: 6px 18px;
 }
 #element.normal.normal {
     border: 2px;
-    border-color: @background-color;
+    border-color: rgba(248, 248, 242, 0.1);
     text-color:       @foreground;
 }
 #element.normal.urgent {
@@ -95,7 +95,7 @@
 }
 #element.alternate.normal {
     border: 2px;
-    border-color: @background-color;
+    border-color: rgba(248, 248, 242, 0.1);
     text-color:       @foreground;
 }
 #element.alternate.urgent {
