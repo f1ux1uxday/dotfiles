@@ -2,8 +2,8 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.vim/plugs')
 
-Plug 'frenzyexists/aquarium-vim'
 Plug 'Mofiqul/dracula.nvim'
+Plug 'scottmckendry/cyberdream.nvim'
 Plug 'xiyaowong/nvim-transparent'
 Plug 'kyazdani42/nvim-web-devicons'
 

@@ -13,7 +13,6 @@ window#waybar {
     color: rgba(248, 248, 242, 0.5);
     background-color: rgba(40, 42, 54, 0); /* bg */
     font-weight: 500;
-    /* border-bottom: 2px solid rgba(53, 185, 171, 0.4); */
 }
 
 window#waybar.solo {
@@ -22,6 +21,9 @@ window#waybar.solo {
 
 #workspaces {
     margin: 0 5px;
+    padding: 0 12px;
+    border: 2px solid rgba(248, 248, 242, 0.1);
+    border-radius: 12px;
 }
 
 #custom-scratchpad {
@@ -54,6 +56,23 @@ window#waybar.solo {
     color: rgba(255, 121, 198, 1); /* pink */
 }
 
+#window {
+  padding: 0 12px;
+  border: 2px solid rgba(248, 248, 242, 0.1);
+  border-radius: 12px;
+  color: rgba(80, 250, 123, 0.6); /* green */
+}
+
+window#waybar.empty #window {
+  border: none;
+}
+
+.modules-right {
+  padding: 0 12px;
+  border: 2px solid rgba(248, 248, 242, 0.1);
+  border-radius: 12px;
+}
+
 #mode, 
 #cpu, 
 #memory, 
@@ -67,13 +86,11 @@ window#waybar.solo {
 #custom-zypper,
 #clock {
     padding: 0px 8px;
-    /* background-color: rgba(40, 42, 54, 1); */
 }
 
 #custom-zypper,
 #network,
 #bluetooth {
-    border-bottom: 2px solid rgba(189, 147, 249, 0.8); /* purple */
     color: rgba(189, 147, 249, 0.8); /* purple */
 }
 
@@ -91,29 +108,24 @@ window#waybar.solo {
 
 #cpu, 
 #memory {
-    border-bottom: 2px solid rgba(139, 233, 253, 0.8); /* cyan */
     color: rgba(139, 233, 253, 0.8); /* cyan */
 } 
 
 #temperature {
-    border-bottom: 2px solid rgba(255, 184, 108, 0.8); /* orange */
     color: rgba(255, 184, 108, 0.8); /* orange */
 }
 
 #pulseaudio {
     padding-right: 16px;
-    border-bottom: 2px solid rgba(255, 121, 198, 0.8); /* pink */
     color: rgba(255, 121, 198, 0.8); /* pink */
 }
 
 #clock {
     padding: 0px 8px;
-    border-bottom: 2px solid rgba(241, 250, 140, 0.8); /* yellow */
     color: rgba(241, 250, 140, 0.8); /* yellow */
 }
 
 #custom-notification {
     padding-right: 4px;
-    border-bottom: 2px solid rgba(255, 110, 110, 0.8); /* red */
     color: rgba(255, 110, 110, 0.8); /* red */
 }
