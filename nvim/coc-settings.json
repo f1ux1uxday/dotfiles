@@ -1,14 +1,12 @@
 {
-  "css.validate": false,
+  "css.validate": true,
   "less.validate": false,
   "scss.validate": false,
-  "wxss.validate": false,
   "eslint.alwaysShowStatus": true,
-  "html.enable": true,
+  "html.format.enable": true,
   "html.filetypes": [
       "html"
   ],
-  "coc.preferences.formatOnSaveFiletypes": [""],
   "Lua.diagnostics.globals": ["vim"],
   "languageserver": {
     "liquid": {

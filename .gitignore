@@ -1,6 +1,7 @@
 /audacious
 /autostart
 /BraveSoftware
+/btop/btop.log
 /chromium
 /coc
 /cmus
@@ -46,6 +47,8 @@
 /wal
 /xfce4
 /XfceThemeManager
+/yarn
+/YaST2
 drkonqirc
 kdeglobals
 kdenlive-layoutsrc

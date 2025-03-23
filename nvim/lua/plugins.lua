@@ -7,7 +7,7 @@ Plug 'scottmckendry/cyberdream.nvim'
 Plug 'xiyaowong/nvim-transparent'
 Plug 'kyazdani42/nvim-web-devicons'
 
-Plug 'neoclide/coc.nvim'
+Plug('neoclide/coc.nvim', {branch = 'release'})
 Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -81,6 +81,14 @@ require("telescope").setup {
 
 -- Treesitter
 require('nvim-treesitter.configs').setup {
+  ensure_installed = {
+    "css",
+    "javascript",
+    "json",
+    "lua",
+    "vue",
+    "typescript"
+  },
   highlight = {
     enable = true,
     disable = {},  -- list of language that will be disabled

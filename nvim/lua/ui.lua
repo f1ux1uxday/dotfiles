@@ -12,10 +12,6 @@ require('dracula').setup({
   },
 })
 
--- require('cyberdream').setup({
---   transparent = true
--- })
-
 vim.cmd[[colorscheme dracula]]
 
 -- Lualine
