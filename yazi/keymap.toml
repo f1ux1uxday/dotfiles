@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 append_keymap = [
   # commands
 	{ on = ["<C-o>"], run = "shell 'ristretto $0'", desc = "Just for test!" },

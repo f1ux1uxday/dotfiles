@@ -1,29 +1,36 @@
 -- Colorscheme
 vim.opt.termguicolors = true
 
-require('dracula').setup({
-  transparent_bg = true,
-  overrides = {
-    TelescopeNormal = { bg = 'none' },
-    TelescopeBorder = { fg = '#BD93F9' },
-    TelescopeSelection = { bg = '#FF79C6', fg = '#3E4452' },
-    LineNr = { fg = '#7282B4' },
-    Comment = { fg = '#7282B4' }
-  },
-})
+-- require('dracula').setup({
+--   transparent_bg = true,
+--   overrides = {
+--     TelescopeNormal = { bg = 'none' },
+--     TelescopeBorder = { fg = '#BD93F9' },
+--     TelescopeSelection = { bg = '#FF79C6', fg = '#3E4452' },
+--     LineNr = { fg = '#7282B4' },
+--     Comment = { fg = '#7282B4' }
+--   },
+-- })
 
-vim.cmd[[colorscheme dracula]]
+-- require('gruvbox-material').setup({
+--   transparent_background = 1,
+-- })
+--
+vim.g.gruvbox_material_transparent_background=1
+
+-- vim.cmd[[colorscheme dracula]]
+vim.cmd[[colorscheme gruvbox-material]]
 
 -- Lualine
-local custom_theme = require'lualine.themes.dracula-nvim'
-custom_theme.insert.c.bg = 'none'
-custom_theme.normal.c.bg = 'none'
-custom_theme.replace.c.bg = 'none'
+-- local custom_theme = require'lualine.themes.dracula-nvim'
+-- custom_theme.insert.c.bg = 'none'
+-- custom_theme.normal.c.bg = 'none'
+-- custom_theme.replace.c.bg = 'none'
 
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = custom_theme,
+    theme = 'gruvbox-material',
     section_separators = { left = '', right = ''},
     component_separators = { left = '', right = ''},
     disabled_filetypes = {},
@@ -58,14 +65,16 @@ require('lualine').setup {
 
 -- Incline
 local devicons = require 'nvim-web-devicons'
-local incline_color_active = '#FF79C6'
-local incline_color_inactive = '#BD93F9'
+-- local incline_color_active = '#FF79C6' Dracula
+-- local incline_color_inactive = '#BD93F9' Dracula
+local incline_color_active = '#ddc7a1'
+local incline_color_inactive = '#ea6962'
 
 require('incline').setup {
   window = {
     padding = 0,
     margin = { horizontal = 0 },
-    zindex = 1
+    zindex = 1,
   },
   highlight = {
     groups = {
@@ -75,7 +84,7 @@ require('incline').setup {
       },
       InclineNormalNC = {
         default = true,
-        group = "LineNr"
+        group = "LineNr",
       }
     }
   },
@@ -91,6 +100,7 @@ require('incline').setup {
       return {
         { filename, gui = modified and 'bold,italic' or 'bold' },
         ft_icon and { ' ', ft_icon, ' ', guifg = color } or '',
+        guibg = 'none',
         guifg = color
       }
     end
@@ -102,6 +112,10 @@ require('incline').setup {
     return content(incline_color_inactive)
   end,
 }
+
+vim.cmd('highlight InclineNormal guibg=NONE')
+vim.cmd('highlight InclineNormalNC guibg=NONE')
+vim.cmd('highlight FloatBorder guibg=NONE')
 
 -- Transparent
 require("transparent").setup({

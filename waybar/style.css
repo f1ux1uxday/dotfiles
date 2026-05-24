@@ -1,8 +1,8 @@
 * {
     border:        none;
     border-radius: 0;
-    font-family:   "FantasqueSansM Nerd Font", "FontAwesome 6 Free";
-    font-size:     12px;
+    font-family:   "Bergen Mono", "FantasqueSansM Nerd Font", "FontAwesome 6 Free";
+    font-size:     11px;
     font-weight:   bold;
     box-shadow:    none;
     text-shadow:   none;
@@ -22,8 +22,9 @@ window#waybar.solo {
 #workspaces {
     margin: 0 5px;
     padding: 0 12px;
-    border: 2px solid rgba(248, 248, 242, 0.1);
-    border-radius: 12px;
+    /* border: 2px solid rgba(248, 248, 242, 0.1); */
+    border: 2px solid rgba(212, 190, 152, 0.5);
+    border-radius: 6px;
 }
 
 #custom-scratchpad {
@@ -33,7 +34,8 @@ window#waybar.solo {
 
 #workspaces button {
     padding: 0 5px;
-    color: rgba(189, 147, 249, 1); /* purple */
+    color: rgba(189, 147, 249, 1); /* drac purple */
+    color: rgba(169, 182, 101, 0.8); /* gruv green */
 }
 
 #workspaces button:hover {
@@ -41,26 +43,31 @@ window#waybar.solo {
 }
 
 #workspaces button.focused {
-    color: rgba(255, 121, 198, 1); /* pink */
+    color: rgba(255, 121, 198, 1); /* drac pink */
+    color: rgba(221, 199, 161, 1); /* gruv white */
 }
 
 #workspaces button.visible {
-    color: rgba(139, 233, 253, 1); /* cyan */
+    color: rgba(139, 233, 253, 1); /* drac cyan */
 }
 
 #workspaces button.urgent {
-    color: rgba(255, 121, 198, 1); /* pink */
+    color: rgba(255, 121, 198, 1); /* drac pink */
 }
 
 #workspaces button.active {
-    color: rgba(255, 121, 198, 1); /* pink */
+    color: rgba(255, 121, 198, 1); /* drac pink */
+    color: rgba(221, 199, 161, 1); /* gruv white */
 }
 
 #window {
   padding: 0 12px;
-  border: 2px solid rgba(248, 248, 242, 0.1);
-  border-radius: 12px;
-  color: rgba(80, 250, 123, 0.6); /* green */
+  /* border: 2px solid rgba(248, 248, 242, 0.1); */
+  border: 2px solid rgba(212, 190, 152, 0.5);
+  border: 2px solid rgba(70, 65, 60, 0.99); /* gruv gray */
+  border-radius: 6px;
+  color: rgba(80, 250, 123, 0.6); /* drac green */
+  color: rgba(70, 65, 60, 0.99); /* gruv gray */
 }
 
 window#waybar.empty #window {
@@ -69,8 +76,9 @@ window#waybar.empty #window {
 
 .modules-right {
   padding: 0 12px;
-  border: 2px solid rgba(248, 248, 242, 0.1);
-  border-radius: 12px;
+  /* border: 2px solid rgba(248, 248, 242, 0.1); */
+  border: 2px solid rgba(212, 190, 152, 0.5);
+  border-radius: 6px;
 }
 
 #mode, 
@@ -91,7 +99,8 @@ window#waybar.empty #window {
 #custom-zypper,
 #network,
 #bluetooth {
-    color: rgba(189, 147, 249, 0.8); /* purple */
+    color: rgba(189, 147, 249, 0.8); /* drac purple */
+    color: rgba(211, 134, 155, 0.8); /* gruv purple */
 }
 
 #bluetooth.disabled {
@@ -108,24 +117,29 @@ window#waybar.empty #window {
 
 #cpu, 
 #memory {
-    color: rgba(139, 233, 253, 0.8); /* cyan */
+    color: rgba(139, 233, 253, 0.8); /* drac cyan */
+    color: rgba(125, 174, 163, 0.8); /* gruv blue */
 } 
 
 #temperature {
-    color: rgba(255, 184, 108, 0.8); /* orange */
+    color: rgba(255, 184, 108, 0.8); /* drac orange */
+    color: rgba(234, 105, 98, 0.8); /* gruv red */
 }
 
 #pulseaudio {
-    padding-right: 16px;
-    color: rgba(255, 121, 198, 0.8); /* pink */
+    padding-right: 12px;
+    color: rgba(255, 121, 198, 0.8); /* drac pink */
+    color: rgba(169, 182, 101, 0.8); /* gruv green */
 }
 
 #clock {
-    padding: 0px 8px;
-    color: rgba(241, 250, 140, 0.8); /* yellow */
+    padding: 0px 6px;
+    color: rgba(241, 250, 140, 0.8); /* drac yellow */
+    color: rgba(216, 166, 87, 0.8); /* gruv yellow */
 }
 
 #custom-notification {
     padding-right: 4px;
-    color: rgba(255, 110, 110, 0.8); /* red */
+    color: rgba(255, 110, 110, 0.8); /* drac red */
+    color: rgba(234, 105, 98, 0.8); /* gruv red */
 }

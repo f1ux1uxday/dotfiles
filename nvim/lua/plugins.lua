@@ -3,6 +3,7 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.vim/plugs')
 
 Plug 'Mofiqul/dracula.nvim'
+Plug 'sainnhe/gruvbox-material'
 Plug 'scottmckendry/cyberdream.nvim'
 Plug 'xiyaowong/nvim-transparent'
 Plug 'kyazdani42/nvim-web-devicons'

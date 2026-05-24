@@ -11,21 +11,35 @@
     drac-pur: #bd93f9;
     drac-red: #ff5555;
     drac-yel: #f1fa8c;
+    drac-bordercolor: rgba(189, 147, 249, 0.8);
+    
+    gruv-bg: rgba(40, 40, 40, 0.5);
+    gruv-fg1: #d4be98;
+    gruv-fg2: #ddc7a1;
+    gruv-red: #ea6962;
+    gruv-orange: #e78a4e;
+    gruv-yellow: #d8a657;
+    gruv-green: #a9b665;
+    gruv-aqua: #89b482;
+    gruv-blue: #7daea3;
+    gruv-purple: #d3869b;
 
-    font: "FantasqueSansM Nerd Font 10";
 
-    foreground: @drac-fgd;
-    background-color: @drac-bgd;
-    active-background: @drac-pnk;
-    urgent-background: @drac-red;
-    urgent-foreground: @drac-bgd;
+    // font: "FantasqueSansM Nerd Font 10";
+    font: "Bergen Mono 11";
+
+    foreground: @gruv-fg1;
+    background-color: @gruv-bg;
+    active-background: @gruv-blue;
+    urgent-background: @gruv-red;
+    urgent-foreground: @gruv-yellow;
     
     selected-background: @active-background;
-    selected-foreground: @drac-cya;
+    selected-foreground: @gruv-orange;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
     separatorcolor: @active-background;
-    bordercolor: rgba(189, 147, 249, 0.8);
+    bordercolor: @gruv-red;
 }
 
 #window {
@@ -64,7 +78,7 @@
 }
 #element {
     background-color: transparent;
-    border-radius: 12px;
+    border-radius: 6px;
     border: 2px;
     padding: 6px 18px;
 }
@@ -131,12 +145,12 @@
 }
 #entry {
     spacing:    0;
-    text-color: @drac-ora;
+    text-color: @gruv-blue;
     background-color: transparent;
 }
 #prompt {
     spacing:    0;
-    text-color: @drac-yel;
+    text-color: @gruv-purple;
     background-color: transparent;
 }
 #inputbar {
@@ -146,7 +160,7 @@
     expand:     false;
     str:        ">";
     margin:     0px 0.3em 0em 0em ;
-    text-color: @drac-grn;
+    text-color: @gruv-aqua;
     background-color: transparent;
 }
 element-text, element-icon {
